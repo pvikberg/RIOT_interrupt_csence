@@ -317,7 +317,7 @@ static void on_ble_write(ble_os_t * p_our_service, ble_evt_t * p_ble_evt)
 		    // p_ble_evt->evt.gatts_evt.params.write.handle,
 		    // (unsigned int)data_buffer);
 
-			//Pyry was here
+			//I was here
 			if(((unsigned int)data_buffer) == 0x00000000){LED1_OFF;LED2_OFF;LED3_OFF;}
 			else if(((unsigned int)data_buffer) == 0x00000002){LED1_ON;LED2_OFF;LED3_OFF;}
 			else if(((unsigned int)data_buffer) == 0x00000003){LED1_OFF;LED2_ON;LED3_OFF;}
@@ -469,7 +469,7 @@ int main(void)
 {
 /*
 I have altered this part, pray I shall not alter it further
--Pyry
+
 */
 	main_pid = thread_getpid();
 	msg_t main_message;
