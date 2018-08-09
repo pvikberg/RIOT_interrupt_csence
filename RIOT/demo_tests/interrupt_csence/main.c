@@ -121,7 +121,7 @@ int main(void)
 			measurementclock = 10000;
 			
 			//start sending the pulse, set timer to zero and wait		
-			gpio_set(GPIO_PIN(0,sendingpin));
+			gpio_clear(GPIO_PIN(0,sendingpin));
 			xtimer_init();
 			xtimer_usleep(touchsensingwait);
 
