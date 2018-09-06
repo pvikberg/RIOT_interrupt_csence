@@ -25,7 +25,7 @@ const int sensingpin = 30;
 
 //currently these values work for a 3.3MOhm resistor and touching the wire metal
 
-const int touchingthreshold = 200;
+const int touchingthreshold = 97;
 
 //how long we should wait between sending rising and falling edges of pulse
 const int touchsensingwait = 500;
@@ -76,7 +76,14 @@ int main(void)
 	int measurementclock = 0;
 	int measurementsum = 0;
 	int touched = 0;
+	
+	//initialize led pin
+	gpio_init(16,GPIO_OUT);
 
+
+	//get ground on pin 2
+	gpio_init(2,GPIO_OUT);
+	gpio_clear(2);
 
 	// Do the below part eternally, probably should be modified to only be done when needed
 	while(1==1){
@@ -146,9 +153,9 @@ int main(void)
         	} 
 		//led on if finger touching metal, TODO: should likely be changed to communicate to other threads
 		if(touched > 0)
-			LED0_ON;
+			gpio_set(16);//LED0_ON;
 		else
-			LED0_OFF;		
+			gpio_clear(16);//LED0_OFF;		
 		
 	}
 
